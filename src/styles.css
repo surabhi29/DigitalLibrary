@@ -1,0 +1,114 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+    margin: 0px;
+    padding: 0px;
+    height: 100vh;
+    width: 100vw;
+    font-size: 16px;
+    /* background-color: aquamarine; */
+}
+
+.mainContent {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    width: calc(100% - 40px);
+    height: calc(100% - 40px);
+}
+
+.headers {
+    width: 100%;
+    height: 40px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+}
+
+.search {
+    border: 1px solid black;
+    height: 15px;
+    padding: 5px;
+    vertical-align: top;
+    background: url("/assets/img/search.svg") no-repeat right center;
+    background-size: 16px 16px;
+}
+
+input[type="search"] {
+    outline: none;
+    border: none;
+}
+
+table {
+    width:100%;
+    border-spacing: 0;
+    border-collapse: collapse;
+    font-size: 1em;
+}
+  
+table thead {
+background-color: #c7dbef;
+font-weight: bold;
+color: #282364;
+vertical-align: top;
+}
+
+table thead th {
+font-weight: 600;
+font-size: 0.90em;
+vertical-align: middle;
+text-align: left;
+/*padding: 10px 0px 0px 0px;*/
+}
+
+table thead th:first-child {
+padding-left: 10px !important;
+}
+
+table tr td {
+color: #666666;
+}
+
+table tr td:first-child {
+padding-left: 10px !important;
+}
+
+table thead th:last-child {
+padding-right: 10px !important;
+}
+
+table tr td:last-child {
+padding-right: 10px !important;
+}
+
+table tr {
+border-bottom: solid 1px #DCDCDC;
+}
+
+table tr td{
+padding: 10px 0px;
+vertical-align: middle;
+}
+
+.bookDetails {
+    height: calc(100% - 60px - 20px);
+    overflow-y: auto;
+}
+
+.bookIssueDetails {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.title {
+    font-size: 1em;
+    color: #333333;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.headingIssue {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

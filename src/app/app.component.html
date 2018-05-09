@@ -1,0 +1,54 @@
+<div class="mainContent">
+  <div class="headers">
+    <div class="search">
+      <input type="search" [(ngModel)]=query placeholder="Search" (keyup)="filteredBooks()" style="width: calc(100% - 20px);"/>
+    </div>
+    <div *ngIf="showFlag" style="margin-left:20px">
+      <input type="text" placeholder="shelf number" [(ngModel)]="locationDetails.shelfNumber"/>
+      <input type="text" placeholder="row number" [(ngModel)]="locationDetails.rowNumber"/>
+      <input type="text" placeholder="column number" [(ngModel)]="locationDetails.columnNumber"/>
+      <button (click)="updateLocation()">Update Location</button>
+    </div>
+  </div>
+  <div>
+    <div>
+      <table>
+        <thead>
+          <th style="width:12%">BOOK ID</th>
+          <th style="width:20%">BOOK NAME</th>
+          <th style="width:20%">AUTHOR</th>
+          <th style="width:20%">ISBN</th>
+          <th style="width:20%">STATUS</th>
+          <th style="width:20%">ACTIONS</th>
+        </thead>
+      </table>
+    </div>
+    <div class="bookDetails" *ngIf="books?.length > 0">
+      <table>
+        <tr *ngFor="let data of books">
+          <td style="width:12%">{{data.bookId}}</td>
+          <td style="width:20%">{{data.bookName}}</td>
+          <td style="width:20%">{{data.author}}</td>
+          <td style="width:20%">{{data.isbn}}</td>
+          <td style="width:20%">{{data.status}}</td>
+          <td style="width:20%">
+            <a [routerLink]="[data.bookId,'issue-history']">Issue Details</a>
+            <img src="assets/img/add.svg" style="width:15px;height:15px;margin-left: 10px;vertical-align: text-bottom;cursor:pointer" 
+                  title="createIssue" *ngIf="data.status=='Available'" (click)="createIssue(data.bookId, data.bookName)"/>
+            <img src="assets/img/cancel_icon.svg" style="width:15px;height:15px;margin-left: 10px;vertical-align: text-bottom;cursor:pointer" 
+                  title="Return" *ngIf="data.status=='Issued'" (click)="updateIssue(data.bookId)"/>
+            <img src="assets/img/check_active.svg" style="width:15px;height:15px;margin-left: 10px;vertical-align: text-bottom;cursor:pointer" 
+                  title="updateLocation" *ngIf="data.status=='Maintenance'" (click)="isLocationFlag(data.bookId)"/>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div *ngIf="!(books?.length > 0)">
+        <table>
+            <tr style="text-align: center">
+              No Data
+            </tr>
+          </table>
+    </div>
+  </div>
+</div>
