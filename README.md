@@ -6,9 +6,6 @@
 4.)On click of issue details link a new div gets opened which displays the issue history and location details of the book along with the back option.
 5.)Search of the book is implemented.
 
-
-# CnbDemo
-
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.1.
 
 ## Development server
